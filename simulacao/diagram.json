@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "author": "Carlos",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 200, "left": 300, "attrs": {} },
+
+    { "type": "wokwi-hc-sr04", "id": "comb", "top": -120, "left": -40, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "agua", "top": -120, "left": 200, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "oleo", "top": -120, "left": 440, "attrs": {} },
+
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -150, "left": 760, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-ds1307", "id": "rtc", "top": 40, "left": 820, "attrs": {} },
+    { "type": "wokwi-microsd-card", "id": "sd", "top": 200, "left": 820, "attrs": {} },
+
+    { "type": "wokwi-led", "id": "ledV", "top": 470, "left": -120, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledA", "top": 470, "left": -60, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "ledR", "top": 470, "left": 0, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "ledAgua", "top": 470, "left": 80, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "ledOleo", "top": 470, "left": 140, "attrs": { "color": "red" } },
+
+    { "type": "wokwi-resistor", "id": "rV", "top": 560, "left": -120, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rA", "top": 560, "left": -60, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rR", "top": 560, "left": 0, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rAgua", "top": 560, "left": 80, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rOleo", "top": 560, "left": 140, "attrs": { "value": "220" } },
+
+    { "type": "wokwi-buzzer", "id": "bz", "top": 620, "left": 360, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay", "top": 600, "left": 520, "attrs": {} }
+  ],
+  "connections": [
+    [ "mega:22", "comb:TRIG", "#0ea5e9", [] ],
+    [ "mega:23", "comb:ECHO", "#0ea5e9", [] ],
+    [ "comb:VCC", "mega:5V", "red", [] ],
+    [ "comb:GND", "mega:GND.1", "black", [] ],
+
+    [ "mega:24", "agua:TRIG", "#0ea5e9", [] ],
+    [ "mega:25", "agua:ECHO", "#0ea5e9", [] ],
+    [ "agua:VCC", "mega:5V", "red", [] ],
+    [ "agua:GND", "mega:GND.1", "black", [] ],
+
+    [ "mega:26", "oleo:TRIG", "#0ea5e9", [] ],
+    [ "mega:27", "oleo:ECHO", "#0ea5e9", [] ],
+    [ "oleo:VCC", "mega:5V", "red", [] ],
+    [ "oleo:GND", "mega:GND.1", "black", [] ],
+
+    [ "mega:20", "lcd:SDA", "#8b5cf6", [] ],
+    [ "mega:21", "lcd:SCL", "#8b5cf6", [] ],
+    [ "lcd:VCC", "mega:5V", "red", [] ],
+    [ "lcd:GND", "mega:GND.2", "black", [] ],
+
+    [ "mega:20", "rtc:SDA", "#8b5cf6", [] ],
+    [ "mega:21", "rtc:SCL", "#8b5cf6", [] ],
+    [ "rtc:5V", "mega:5V", "red", [] ],
+    [ "rtc:GND", "mega:GND.2", "black", [] ],
+
+    [ "mega:53", "sd:CS", "#f59e0b", [] ],
+    [ "mega:51", "sd:MOSI", "#22c55e", [] ],
+    [ "mega:50", "sd:MISO", "#2563eb", [] ],
+    [ "mega:52", "sd:SCK", "#8b5cf6", [] ],
+    [ "sd:VCC", "mega:5V", "red", [] ],
+    [ "sd:GND", "mega:GND.3", "black", [] ],
+
+    [ "mega:30", "rV:1", "#22c55e", [] ],
+    [ "rV:2", "ledV:A", "#22c55e", [] ],
+    [ "ledV:C", "mega:GND.5", "black", [] ],
+
+    [ "mega:31", "rA:1", "#eab308", [] ],
+    [ "rA:2", "ledA:A", "#eab308", [] ],
+    [ "ledA:C", "mega:GND.5", "black", [] ],
+
+    [ "mega:32", "rR:1", "#ef4444", [] ],
+    [ "rR:2", "ledR:A", "#ef4444", [] ],
+    [ "ledR:C", "mega:GND.5", "black", [] ],
+
+    [ "mega:33", "rAgua:1", "#f97316", [] ],
+    [ "rAgua:2", "ledAgua:A", "#f97316", [] ],
+    [ "ledAgua:C", "mega:GND.5", "black", [] ],
+
+    [ "mega:34", "rOleo:1", "#f97316", [] ],
+    [ "rOleo:2", "ledOleo:A", "#f97316", [] ],
+    [ "ledOleo:C", "mega:GND.5", "black", [] ],
+
+    [ "mega:35", "bz:1", "#ec4899", [] ],
+    [ "bz:2", "mega:GND.4", "black", [] ],
+
+    [ "mega:36", "relay:IN", "#92400e", [] ],
+    [ "relay:VCC", "mega:5V", "red", [] ],
+    [ "relay:GND", "mega:GND.4", "black", [] ]
+  ],
+  "dependencies": {}
+}
