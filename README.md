@@ -2,8 +2,6 @@
 
 Sistema embarcado baseado em **Arduino Mega 2560** que monitora em tempo real os níveis de **combustível, água e óleo** de uma locomotiva, exibe os dados em display LCD, alerta condições críticas por LED e buzzer, aciona um relé de redução de potência quando o combustível está crítico e registra o histórico de consumo com data e hora em cartão SD.
 
-> Projeto desenvolvido no curso **Técnico em Desenvolvimento de Sistemas — SENAI Feira de Santana**.
-
 ![Diagrama elétrico](docs/diagrama_eletrico.svg)
 
 ---
