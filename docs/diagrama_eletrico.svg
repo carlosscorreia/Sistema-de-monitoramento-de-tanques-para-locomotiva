@@ -1,0 +1,115 @@
+<svg viewBox="0 0 1060 760" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- fundo -->
+  <rect x="0" y="0" width="1060" height="760" fill="#ffffff"/>
+  <rect x="0" y="0" width="1060" height="760" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- titulo -->
+  <text x="530" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Sistema de Monitoramento de Fluidos — Locomotiva</text>
+  <text x="530" y="60" text-anchor="middle" font-size="13" fill="#64748b">Arduino Mega 2560 · Combustível · Água · Óleo</text>
+
+  <!-- ============ WIRES (desenhadas antes das caixas) ============ -->
+  <g stroke-width="2.5" fill="none">
+    <!-- Sensores (topo) -> Mega -->
+    <path d="M125 158 L125 250 L430 250 L430 320" stroke="#0ea5e9"/>
+    <path d="M530 158 L530 300" stroke="#0ea5e9"/>
+    <path d="M935 158 L935 250 L630 250 L630 320" stroke="#0ea5e9"/>
+
+    <!-- I2C (LCD + RTC) -> Mega (SDA20 / SCL21) -->
+    <path d="M850 235 L700 235 L700 360 L610 360" stroke="#8b5cf6"/>
+    <path d="M850 335 L720 335 L720 380 L610 380" stroke="#8b5cf6"/>
+
+    <!-- SPI (SD) -> Mega (50/51/52/53) -->
+    <path d="M850 445 L660 445 L660 410 L610 410" stroke="#2563eb"/>
+
+    <!-- LEDs combustível -> Mega -->
+    <path d="M210 235 L360 235 L360 340 L430 340" stroke="#22c55e"/>
+    <!-- LED água -> Mega -->
+    <path d="M210 335 L300 335 L300 380 L430 380" stroke="#f97316"/>
+    <!-- LED óleo -> Mega -->
+    <path d="M210 445 L320 445 L320 410 L430 410" stroke="#f97316"/>
+
+    <!-- Buzzer -> Mega -->
+    <path d="M390 600 L390 450" stroke="#ec4899"/>
+    <!-- Relé -> Mega -->
+    <path d="M690 600 L690 450" stroke="#92400e"/>
+  </g>
+
+  <!-- ============ ARDUINO MEGA ============ -->
+  <rect x="430" y="320" width="200" height="130" rx="10" fill="#0f766e"/>
+  <text x="530" y="372" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">ARDUINO</text>
+  <text x="530" y="394" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">MEGA 2560</text>
+  <text x="530" y="420" text-anchor="middle" font-size="11" fill="#99f6e4">I2C: SDA 20 · SCL 21</text>
+  <text x="530" y="436" text-anchor="middle" font-size="11" fill="#99f6e4">SPI: 50/51/52 · CS 53</text>
+
+  <!-- ============ SENSORES (topo) ============ -->
+  <g>
+    <rect x="40" y="100" width="170" height="58" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="125" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#0c4a6e">HC-SR04 Combustível</text>
+    <text x="125" y="144" text-anchor="middle" font-size="11" fill="#0369a1">TRIG 22 · ECHO 23</text>
+
+    <rect x="445" y="100" width="170" height="58" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="530" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#0c4a6e">HC-SR04 Água</text>
+    <text x="530" y="144" text-anchor="middle" font-size="11" fill="#0369a1">TRIG 24 · ECHO 25</text>
+
+    <rect x="850" y="100" width="170" height="58" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="935" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#0c4a6e">HC-SR04 Óleo</text>
+    <text x="935" y="144" text-anchor="middle" font-size="11" fill="#0369a1">TRIG 26 · ECHO 27</text>
+  </g>
+
+  <!-- ============ LADO DIREITO (I2C + SPI) ============ -->
+  <g>
+    <rect x="850" y="208" width="170" height="54" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="935" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">LCD I2C 16x2</text>
+    <text x="935" y="249" text-anchor="middle" font-size="11" fill="#6d28d9">addr 0x27 · SDA/SCL</text>
+
+    <rect x="850" y="308" width="170" height="54" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="935" y="330" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">RTC DS1307</text>
+    <text x="935" y="349" text-anchor="middle" font-size="11" fill="#6d28d9">addr 0x68 · SDA/SCL</text>
+
+    <rect x="850" y="418" width="170" height="54" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="935" y="440" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Módulo SD Card</text>
+    <text x="935" y="459" text-anchor="middle" font-size="11" fill="#1d4ed8">SPI · CS 53</text>
+  </g>
+
+  <!-- ============ LADO ESQUERDO (LEDs) ============ -->
+  <g>
+    <rect x="40" y="208" width="170" height="54" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="125" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">LEDs Combustível</text>
+    <text x="125" y="249" text-anchor="middle" font-size="11" fill="#15803d">Verde 30 · Amar 31 · Verm 32</text>
+
+    <rect x="40" y="308" width="170" height="54" rx="8" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+    <text x="125" y="330" text-anchor="middle" font-size="13" font-weight="700" fill="#9a3412">LED Água baixa</text>
+    <text x="125" y="349" text-anchor="middle" font-size="11" fill="#c2410c">pino 33</text>
+
+    <rect x="40" y="418" width="170" height="54" rx="8" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+    <text x="125" y="440" text-anchor="middle" font-size="13" font-weight="700" fill="#9a3412">LED Óleo baixo</text>
+    <text x="125" y="459" text-anchor="middle" font-size="11" fill="#c2410c">pino 34</text>
+  </g>
+
+  <!-- ============ BASE (Buzzer + Relé) ============ -->
+  <g>
+    <rect x="305" y="600" width="170" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <text x="390" y="622" text-anchor="middle" font-size="13" font-weight="700" fill="#9d174d">Buzzer</text>
+    <text x="390" y="641" text-anchor="middle" font-size="11" fill="#be185d">pino 35</text>
+
+    <rect x="605" y="600" width="170" height="54" rx="8" fill="#fef3c7" stroke="#92400e" stroke-width="2"/>
+    <text x="690" y="622" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">Relé (redução potência)</text>
+    <text x="690" y="641" text-anchor="middle" font-size="11" fill="#92400e">pino 36</text>
+  </g>
+
+  <!-- ============ LEGENDA ============ -->
+  <g font-size="11" fill="#475569">
+    <rect x="40" y="690" width="980" height="46" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="60" y1="705" x2="90" y2="705" stroke="#0ea5e9" stroke-width="3"/>
+    <text x="98" y="709">Sensores ultrassônicos</text>
+    <line x1="240" y1="705" x2="270" y2="705" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="278" y="709">Barramento I2C (LCD + RTC)</text>
+    <line x1="470" y1="705" x2="500" y2="705" stroke="#2563eb" stroke-width="3"/>
+    <text x="508" y="709">SPI (SD Card)</text>
+    <line x1="640" y1="705" x2="670" y2="705" stroke="#22c55e" stroke-width="3"/>
+    <text x="678" y="709">Status / LEDs</text>
+    <line x1="800" y1="705" x2="830" y2="705" stroke="#ec4899" stroke-width="3"/>
+    <text x="838" y="709">Buzzer / Relé</text>
+    <text x="60" y="727" fill="#94a3b8">Todos os módulos VCC → 5V e GND → GND do Mega. SPI: MISO 50 · MOSI 51 · SCK 52 · CS 53.</text>
+  </g>
+</svg>
