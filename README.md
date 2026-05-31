@@ -160,7 +160,7 @@ monitoramento-locomotiva/
 │   └── monitor_locomotiva.ino
 ├── docs/
 │   ├── diagrama_eletrico.svg
-│   └── simulacao.png          (print que você gera no Wokwi)
+│   └── simulacao.png       
 └── simulacao/
     └── diagram.json           (montagem para o Wokwi)
 ```
@@ -177,4 +177,4 @@ Distribuído sob a licença MIT. Veja o arquivo [`LICENSE`](LICENSE).
 
 ## Autor
 
-Carlos — Técnico em Desenvolvimento de Sistemas, SENAI Feira de Santana.
+Carlos - Técnico em Desenvolvimento de Sistemas, SENAI Feira de Santana.
