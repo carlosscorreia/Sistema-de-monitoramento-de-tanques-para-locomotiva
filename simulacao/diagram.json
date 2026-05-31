@@ -55,8 +55,8 @@
     [ "rtc:GND", "mega:GND.2", "black", [] ],
 
     [ "mega:53", "sd:CS", "#f59e0b", [] ],
-    [ "mega:51", "sd:MOSI", "#22c55e", [] ],
-    [ "mega:50", "sd:MISO", "#2563eb", [] ],
+    [ "mega:51", "sd:DI", "#22c55e", [] ],
+    [ "mega:50", "sd:DO", "#2563eb", [] ],
     [ "mega:52", "sd:SCK", "#8b5cf6", [] ],
     [ "sd:VCC", "mega:5V", "red", [] ],
     [ "sd:GND", "mega:GND.3", "black", [] ],
